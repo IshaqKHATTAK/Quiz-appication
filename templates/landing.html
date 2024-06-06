@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% block title %} UniQue {% endblock %}
+
+{% block content %}
+
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div >
+        <h3 class="fontstyle">Quiz your way through university</h3>
+        <h3 class="fontstyle">Generate quiz from your PDF today!</h3>
+        <p >Already have an account? click Login or Signup for registration</p>
+        <br>
+        <a href="/login">
+            <button class="btn btn-outline-success login"> Log In </button>
+        </a>
+        <a href="/signup">
+            <button class="btn btn-outline-success signup"> Sign Up </button>
+        </a>
+    </div>
+</div>
+</div>
+<style>
+    .fontstyle{
+        font-family: Georgia;
+
+    }
+    a{
+        text-decoration: none; 
+    }
+    .signup{
+        border: 3px solid  #29e755;
+        border-radius: 40px;
+        width: 100px;
+        height: 60px;
+        margin-left: 100px;
+        font-size: 20px;
+        color: black;
+    }
+    .login{
+        border: 3px solid  #29e755;
+        border-radius: 40px;
+        width: 100px;
+        height: 60px;
+        margin-left: 50px;
+        font-size: 20px;
+        color: black;
+    }
+</style>
+{% endblock %}

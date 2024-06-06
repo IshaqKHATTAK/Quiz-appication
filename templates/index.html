@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+<div class="d-flex justify-content-center align-items-center">
+<a id="quiz1" class="quiz-box" name = 'quiz1' href="quiz_form" style="margin-top: 300px;">
+    <h5>Quiz 1</h5>
+</a>
+<a id="quiz2" class="quiz-box" name="quiz2" href="quiz_form" style="margin-top: 200px;">
+    <h5>Quiz 2</h5>
+</a>
+<a id="quiz3" class="quiz-box" name = 'quiz3' href="quiz_form" style="margin-top: 100px;">
+    <h5>Quiz 3</h5>
+</a>
+<a id="quiz4" class="quiz-box" name = 'quiz4' href="quiz_form" style="margin-top: 0px;">
+    <h5>Quiz 4</h5>
+</a>
+<a id="quiz5" class="quiz-box" name="quiz5" href="quiz_form" style="margin-top: 100px;">
+    <h5>Quiz 5</h5>
+</a>
+
+<a id="quiz6" name="quiz6" class="quiz-box" href="quiz_form" style="margin-top: 200px;">
+    <h5>Quiz 6</h5>
+</a>
+<a id="quiz7" name="quiz7" class="quiz-box" href="quiz_form" style="margin-top: 250px;">
+    <h5>Quiz 7</h5>
+</a>
+<a id="quiz8" name="quiz8" class="quiz-box" href="quiz_form" style="margin-top: 200px;">
+    <h5>Quiz 8</h5>
+</a>
+<a id="quiz9" name="quiz9" class="quiz-box" href="quiz_form" style="margin-top: 100px;">
+    <h5>Quiz 9</h5>
+</a>
+<a id="quiz10" name="quiz10" class="quiz-box" href="quiz_form" style="margin-top: 0px;">
+    <h6>Quiz 10</h6>
+</a>
+
+<a id="quiz11" name="quiz11" class="quiz-box" href="quiz_form" style="margin-top: 100px;">
+    <h5>Quiz 11</h5>
+</a>
+<a id="quiz12" name="quiz12" class="quiz-box" href="quiz_form" style="margin-top: 200px;">
+    <h5>Quiz 12</h5>
+</a>
+<a id="quiz13" name="quiz13" class="quiz-box" href="quiz_form" style="margin-top: 300px;">
+    <h5>Quiz 13</h5>
+</a>
+</div>
+<div class="guide d-flex justify-content-center align-items-center">
+    <div class=" container cont">
+        <h6>STEP 1</h6>
+        <P>Click on any quiz show above to attempt the quiz</P>
+    </div>
+    <div class="cont container">
+        <h6>STEP 2</h6>
+        <P>Upload the files that you want that you to give quiz of and click on generate quiz</P>
+    </div>
+    <div class="cont container">
+        <h6>STEP 3</h6>
+        <P>Attempt the generate quiz and submit once completed</P>
+    </div>
+</div>
+
+
+<style>
+
+    .quiz-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin: 20px 0;
+    }
+
+    .quiz-box {
+        background-color: #72d788;
+        border: 4px solid #e4cf8f;
+        padding: 20px 20px;
+        margin: 20px;
+        text-decoration: none;
+        color: #050404;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        /* Adjust width as needed */
+        height: 60px;
+        /* Adjust height as needed */
+        border-radius: 20px;
+        transition: background-color 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+    }
+
+    .quiz-box:hover {
+        background-color: transparent;
+        border-radius: 10px;
+        /* Adjust border radius as needed */
+        box-shadow: 0 0 20px #e4cf8f;
+    }
+
+    @media screen and (max-width: 760px) {
+        .quiz-box {
+            width: 100%;
+        }
+    }
+
+    .disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+  
+    
+    .container {
+            width: 250px;
+            height: 130px;
+            padding: 20px;
+            margin: 20px;
+            position: relative;
+            background-color: #f0f0f0;
+        }
+
+        .container:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            right: -20px; 
+            width: 0;
+            border-top: 40px solid transparent; /* Adjust this value to control the height of the trapezium */
+            border-bottom: 40px solid transparent; /* Adjust this value to control the height of the trapezium */
+            border-left: 20px solid #f0f0f0; /* Adjust this value to match the background color */
+        }
+
+        h6 {
+            margin-top: 0;
+        }
+
+        p {
+            margin-bottom: 0;
+        }
+</style>
+<script>
+    function disableLink(linkId) {
+        var link = document.getElementById(linkId);
+        link.style.pointerEvents = 'none'; // Disable the link
+        link.style.opacity = '0.5'; // Reduce opacity to visually indicate it's disabled
+    }
+</script>
+{% endblock %}

@@ -1,0 +1,149 @@
+{% extends "base.html" %}
+{% block title %} Quiz {% endblock %}
+
+
+{% block content %}
+<div class="spinner-container text-center">
+	<img src="../static/Spin@1x-1.0s-200px-200px.svg" alt="Loading Spinner" class="spinner">
+</div>
+<div class="containerform">
+	<h4 class="d-flex align-items-center justify-content-md-center quizform" style="font-family: Georgia;">Upload files
+		here and click generate quiz to take quiz</h4>
+	<div class="frame">
+		<div class="center">
+			<div class="title">
+				<h1>Drop file to upload</h1>
+			</div>
+			<form id="uploadForm" action="#" method="post" enctype="multipart/form-data">
+				<div class="dropzone">
+					<img src="http://100dayscss.com/codepen/upload.svg" class="upload-icon" />
+					<input type="file" name=file class="upload-input" accept=".pdf, .txt" multiple />
+				</div>
+				<input type="submit" class="btn" name="uploadbutton" value="Generate Quiz">
+			</form>
+		</div>
+	</div>
+</div>
+<style>
+	@import url(https://fonts.googleapis.com/css?family=Open+Sans:700,300);
+
+	.frame {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: 400px;
+		height: 400px;
+		margin-top: -200px;
+		margin-left: -200px;
+		border-radius: 2px;
+		box-shadow: 4px 8px 16px 0 rgba(0, 0, 0, 0.1);
+		overflow: hidden;
+		background: linear-gradient(to top right, #6cc580 0%, #baf3c6 100%);
+		color: #333;
+		font-family: "Open Sans", Helvetica, sans-serif;
+	}
+
+	.center {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		width: 300px;
+		height: 260px;
+		border-radius: 3px;
+		box-shadow: 8px 10px 15px 0 rgba(0, 0, 0, 0.2);
+		background: #fff;
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		flex-direction: column;
+	}
+
+	.title {
+		width: 100%;
+		height: 50px;
+		border-bottom: 1px solid #999;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+
+	h1 {
+		font-size: 16px;
+		font-weight: 300;
+		color: #666;
+	}
+
+	.dropzone {
+		width: 200px;
+
+		height: 80px;
+		border: 1px dashed #999;
+		border-radius: 3px;
+		text-align: center;
+	}
+
+
+	.upload-icon {
+		margin: 25px 2px 2px 2px;
+	}
+
+	.upload-input {
+		position: relative;
+		top: -62px;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		opacity: 0;
+	}
+
+	.btn {
+		display: block;
+		width: 200px;
+		height: 40px;
+		background: #6cc580;
+		color: #fff;
+		border-radius: 3px;
+		border: 0;
+		box-shadow: 0 3px 0 0 #e4cf8f;
+		transition: all 0.3s ease-in-out;
+		font-size: 14px;
+		margin-top: 20px;
+	}
+
+	.btn:hover {
+		background: #12f042;
+		box-shadow: 0 3px 0 0 #070707;
+	}
+
+	.spinner-container {
+		position: fixed;
+		top: 50%;
+		left: 50%;
+		transform: translate(-50%, -50%);
+		z-index: 1001;
+		background-color: transparent;
+		display: none;
+	}
+
+	.spinner {
+		display: none;
+		width: 200px;
+		height: 200px;
+	}
+</style>
+<script>
+	document.addEventListener('DOMContentLoaded', function () {
+		document.getElementById('uploadForm').addEventListener('submit', function (event) {
+
+			document.querySelector('.spinner-container').style.display = 'block';
+			document.querySelector('.spinner').style.display = 'block';
+			document.querySelector('.containerform').style.display = 'none';
+
+			// Simulate form submission delay (for demonstration purposes)
+			setTimeout(() => {
+				console.log('Form submitted');
+			}, 2000);
+		});
+	});
+</script>
+{% endblock %}

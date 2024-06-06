@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block title %} Attempt Quiz {% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center quizform">
+        <div class="col-9">
+            <div class="bg-light p-4 rounded">
+                <div class="text-center mb-4">
+                    <h1 style="font-family: Georgia;">Attempt all the questions</h1>
+                    <div class="list-items">
+                        <b style="font-family: Georgia;">
+                            <p>• Carefully read the questions and their answers.</p>
+                            <p>• Select one option from the given four options.</p>
+                            <p>• Once you complete your quiz, click on Submit Quiz.</p>
+                        </b>
+                    </div>
+                </div>
+                <br>
+                <form method="POST" action="/submit_quiz">
+                    {% set ns = namespace(c = 0) %}
+                    {% for question in questions %}
+                    {% if question and question.options[0] %}
+                    <h5>{{question.question}}</h5>
+                    <input type="hidden" name="question{{ns.c}}_text" value="{{question.question}}">
+                    {% for option in question.options %}
+                    <input type="radio" class="inpt" id="answer-{{ns.c}}-{{loop.index}}" name="answer{{ns.c}}"
+                        value={{option}} required>
+                    <label for="answer-{{ns.c}}-{{loop.index}}">{{option}}</label><br>
+                    {% endfor %}
+                    {% set ns.c = ns.c + 1 %}
+                    {% endif %}
+                    {% endfor %}
+                    <button type="submit" class="bttn">Submit Quiz</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<style>
+    .inpt {
+        background: #12f042;
+    }
+
+    .bg-light {
+        background-color: #86d198 !important;
+        /* Important to override Bootstrap's default */
+    }
+
+    .bttn {
+        background: #12f042;
+        border-radius: 50px;
+        width: 240px;
+        height: 75px;
+        margin-left: 300px;
+        transition: background-color 0.5s ease-in-out, border-radius 0.5s ease-in-out;
+    }
+
+    .list-items p {
+        margin-left: 190px;
+        /* Adjust the left margin as needed */
+        text-align: left;
+        padding-right: 0px;
+    }
+
+    .bttn:hover {
+        background-color: transparent;
+        border-radius: 20px;
+        /* Adjust border radius as needed */
+        box-shadow: 0 0 50px #12f042;
+    }
+
+    .spinner-container {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1001;
+        background-color: transparent;
+    }
+
+    .spinner {
+        width: 200px;
+        height: 200px;
+    }
+</style>
+{% endblock %}

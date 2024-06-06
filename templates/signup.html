@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %} SignUp {% endblock %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div>
+        <h2 style="margin-left: 90px;">Sign Up</h2>
+        <form method="POST" action="/signup">
+            <div class="mb-3">
+                <b><label for="email" class="form-label">Email</label></b>
+                <input type="email" class="form-control form-control-lg" id="email" name = 'email' placeholder="Enter your emial">
+            </div>
+            <div class="mb-3">
+                
+                <b><label for="username" class="form-label">Username</label></b>
+                <input type="text" class="form-control form-control-lg" id="username" name = 'username' placeholder="Enter your username">
+            </div>
+            <div class="mb-3">
+                <b><label for="password" class="form-label">Password</label></b>
+                <input type="password" class="form-control form-control-lg" id="password" name = 'password' placeholder="Enter your password">
+            </div>
+            <button type="submit" class="btn btn-outline-success bttn">Sign Up</button>
+        </form>
+        <p>Already have account? Login <a href="/login">here</a></p>
+    </div>
+</div>
+<style>
+    
+    .bttn{
+        border: 3px solid  #29e755;
+        border-radius: 40px;
+        width: 150px;
+        height: 50px;
+        font-size: 20px;
+        margin-left: 60px;
+    }
+</style>
+{% endblock %}

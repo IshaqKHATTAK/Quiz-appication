@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %} Thank you {% endblock %}
+
+
+{% block content %}
+<div class="container thank" >
+    <h1 class="check d-flex justify-content-center align-items-center"><i class="bi bi-check-circle-fill"></i></h1>
+    <h3 class="d-flex justify-content-center align-items-center" style="font-family: Georgia;">Quiz Submitted! </h3>
+    <p class="d-flex justify-content-center align-items-center" >Thank you for your time you have attempted the quiz</p>
+    <i class="bi bi-house-up-fill"></i>
+    <a href="/main" class="home d-flex justify-content-center align-items-center">
+        
+        <h4 style="font-family: Georgia;">Back to home? <button><i class="bi bi-arrow-counterclockwise"></i></button></h4>
+    </a>
+</div>
+
+<style>
+    .check {
+    font-size: 4em; /* Adjust the size as needed */
+}
+.thank{
+    background-color: #86d198;
+    width: 40%;
+    height: 270px;
+    margin-top: 170px;
+    border: 4px solid #e4cf8f;
+}
+.thank a {
+        text-decoration: none; 
+        color: black; 
+    }
+.home{
+    margin-top: 70px
+}
+.home button{
+    background-color: #5fcb78;
+    border: 4px solid #e4cf8f;
+    border-radius: 10px;
+}
+</style>
+{% endblock %}
